@@ -239,7 +239,8 @@ with st.sidebar:
     
     for t_name, t_text in templates.items():
         if st.button(t_name):
-            st.session_state.autofill_query = t_text
+            st.session_state.query_input = t_text
+            st.rerun()
 
 # =====================================================================
 # 4. Main Page Header
@@ -259,21 +260,18 @@ with tab1:
     with col_input:
         st.subheader("Customer Support Input")
         
-        # Pull text from clicked template if existing
-        default_val = st.session_state.get("autofill_query", "")
-        
-        # User input text box
+        # Initialize query_input key in state if not present
+        if "query_input" not in st.session_state:
+            st.session_state.query_input = ""
+            
+        # User input text box tied directly to session state
         user_query = st.text_area(
             "Enter customer support request / ticket content:",
-            value=default_val,
+            key="query_input",
             height=130,
             placeholder="Type customer question here..."
         )
         
-        # Clear template state so it does not persist on every submit
-        if "autofill_query" in st.session_state:
-            del st.session_state.autofill_query
-            
         run_btn = st.button("Run Agent Workflow", type="primary", use_container_width=True)
         
     with col_kb:
