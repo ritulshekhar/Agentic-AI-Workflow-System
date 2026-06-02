@@ -1,0 +1,14 @@
+TICKET CATEGORY: TECHNICAL SUPPORT & ACCOUNTS
+
+1. Account Login Issues & Password Resets:
+- If a user is unable to log in, they should click "Forgot Password" on the login page. An automated reset email containing a security link will be sent to the registered email address. This link is valid for 1 hour.
+- If the email does not arrive, check the Spam/Junk folder or confirm that the email address matches the one used to register.
+- Two-Factor Authentication (2FA) issues: If a customer is locked out because of 2FA or a lost device, a Support Supervisor must manually verify identity (via government-issued ID or security questions) before resetting security settings.
+
+2. App Crashes & Web Interface Troubleshooting:
+- Clearing Cache: Most browser issues can be solved by clearing cookies and site cache or trying an Incognito/Private window.
+- System Compatibility:
+  - Mobile App: Ensure the app is updated to the latest version in the iOS App Store or Google Play Store. Supported OS versions: iOS 15+ and Android 10+.
+  - Desktop browsers: Chrome 90+, Safari 14+, and Firefox 88+ are officially supported. Edge is supported on Chromium.
+- Error Code 1004 (Database Connection Timeout): Indicates transient server issues. Advise the user to wait 2 minutes, refresh, or log out and back in.
+- Offline Mode: The mobile app has limited offline capability. Document edits or transactions made while offline will sync automatically once a stable internet connection is restored.
