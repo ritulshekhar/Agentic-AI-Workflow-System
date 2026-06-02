@@ -4,7 +4,7 @@ A beginner-friendly, visually stunning Multi-Agent Workflow System designed to a
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 *   **Stateful Orchestration with LangGraph**: Coordinates 4 specialized agents (Classification, Retrieval, Response, and Supervisor) using graph-based loops.
 *   **Self-Correcting Routing Loops**: The Supervisor Agent audits draft replies. If quality checks fail, the workflow loops back to the Response Agent with feedback to refine the draft.
@@ -16,7 +16,7 @@ A beginner-friendly, visually stunning Multi-Agent Workflow System designed to a
 
 ---
 
-## 📐 Multi-Agent Workflow Architecture
+## Multi-Agent Workflow Architecture
 
 ```mermaid
 graph TD
@@ -36,7 +36,7 @@ graph TD
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ├── requirements.txt            # Python dependencies (LangGraph, FastAPI, Streamlit, etc.)
@@ -59,7 +59,7 @@ graph TD
 
 ---
 
-## ⚡ Quick Start Guide
+## Quick Start Guide
 
 ### 1. Installation
 Clone this repository to your computer and navigate to the project folder. Run:
@@ -94,7 +94,7 @@ To run the project as a full API service and web app, open two terminal windows:
 
 ---
 
-## 🛠️ Running with Live OpenAI-Compatible LLMs
+## Running with Live OpenAI-Compatible LLMs
 
 By default, the sidebar has **"Enable Mock LLM Mode"** toggled **ON** to run without API keys. To connect actual LLM APIs:
 1.  Open the Streamlit app sidebar.
@@ -104,9 +104,3 @@ By default, the sidebar has **"Enable Mock LLM Mode"** toggled **ON** to run wit
 5.  Submit a ticket query to run the live agents.
 
 ---
-
-## 🎓 Educational Resource Materials
-We have created dedicated learning documents for placements and learning:
-*   Read [project_explanation.md](file:///Users/harsh/Desktop/Agentic%20AI%20workflow%20System/project_docs/project_explanation.md) for a line-by-line concept breakdown.
-*   Read [fresher_architecture.md](file:///Users/harsh/Desktop/Agentic%20AI%20workflow%20System/project_docs/fresher_architecture.md) for a simple explanation of LangGraph states, nodes, and edges.
-*   Read [interview_qa.md](file:///Users/harsh/Desktop/Agentic%20AI%20workflow%20System/project_docs/interview_qa.md) to practice agentic AI questions and answers.
