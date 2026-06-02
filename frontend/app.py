@@ -22,7 +22,6 @@ except ImportError:
 # =====================================================================
 st.set_page_config(
     page_title="AgentFlow - Agentic Support Workflow System",
-    page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -30,118 +29,108 @@ st.set_page_config(
 # Custom premium styling using HTML/CSS injection
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     /* Main typography rules */
     html, body, [class*="css"] {
         font-family: 'Inter', sans-serif;
     }
-    h1, h2, h3, h4, .outfit-font {
-        font-family: 'Outfit', sans-serif;
-        font-weight: 600;
-    }
     
-    /* Sleek gradient main header */
+    /* Clean, professional title styling */
     .main-header {
-        background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 2.8rem;
-        font-weight: 800;
+        color: #f8fafc;
+        font-size: 2.25rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
         margin-bottom: 0.2rem;
     }
     
     /* Subtitle styling */
     .sub-header {
-        color: #9ca3af;
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
+        color: #64748b;
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
     }
     
-    /* Glassmorphic card containers */
+    /* Solid premium cards */
     .glass-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1.5rem;
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 1.25rem;
         margin-bottom: 1rem;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(5px);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
     }
     
-    /* Agent Steps styling badges */
+    /* Clean list item cards for agents */
     .agent-card {
-        border-left: 4px solid #6366f1;
-        background: rgba(99, 102, 241, 0.04);
-        padding: 1rem 1.2rem;
-        border-radius: 0 12px 12px 0;
-        margin-bottom: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-        border-right: 1px solid rgba(255, 255, 255, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        border: 1px solid #334155;
+        background: #0f172a;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 0.75rem;
     }
     
     .agent-name {
-        font-weight: 700;
-        color: #818cf8;
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
+        font-weight: 600;
+        color: #f8fafc;
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
     }
     
     .agent-thoughts {
-        font-style: italic;
-        color: #d1d5db;
-        font-size: 0.95rem;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        background: rgba(0, 0, 0, 0.2);
+        color: #94a3b8;
+        font-size: 0.85rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+        background: #1e293b;
         padding: 0.6rem;
-        border-radius: 6px;
+        border-radius: 4px;
+        border-left: 2px solid #4f46e5;
     }
     
     /* Response Display Box */
     .response-box {
-        background: rgba(16, 185, 129, 0.05);
-        border: 1px solid rgba(16, 185, 129, 0.2);
-        border-left: 5px solid #10b981;
-        padding: 1.5rem;
-        border-radius: 8px;
-        color: #f3f4f6;
+        background: #1e293b;
+        border: 1px solid #334155;
+        padding: 1.25rem;
+        border-radius: 6px;
+        color: #f1f5f9;
         white-space: pre-wrap;
-        font-size: 1rem;
-        line-height: 1.5;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
     
-    /* Status indicators */
+    /* Flat status indicators */
     .status-badge {
-        padding: 0.25rem 0.6rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 700;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 600;
         text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
     .status-pass {
-        background-color: rgba(16, 185, 129, 0.2);
+        background-color: rgba(16, 185, 129, 0.1);
         color: #34d399;
-        border: 1px solid #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
     }
     
     .status-fail {
-        background-color: rgba(239, 68, 68, 0.2);
+        background-color: rgba(239, 68, 68, 0.1);
         color: #f87171;
-        border: 1px solid #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.3);
     }
     
-    /* Sidebar styling enhancements */
     .sidebar-header {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #f3f4f6;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #f8fafc;
+        margin-bottom: 0.75rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -202,23 +191,23 @@ is_backend_active = check_fastapi_connection()
 # 3. Sidebar Panel Configurations
 # =====================================================================
 with st.sidebar:
-    st.markdown("<div class='sidebar-header'>🤖 AgentFlow Controls</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sidebar-header'>AgentFlow Controls</div>", unsafe_allow_html=True)
     
     # Connection Mode Selection
     if is_backend_active:
-        st.success("🟢 FastAPI Backend Server Connected")
+        st.success("FastAPI Backend Server Connected")
         connection_mode = st.radio(
             "Execution Driver",
             options=["FastAPI Server API", "In-Process Engine (Direct Code)"],
             help="Choose whether to request ticket solutions from the FastAPI backend service or run the python libraries directly."
         )
     else:
-        st.warning("🟡 FastAPI Server Offline. Defaulting to In-Process.")
+        st.warning("FastAPI Server Offline. Defaulting to In-Process.")
         connection_mode = "In-Process Engine (Direct Code)"
         st.info("Direct Code mode allows this application to run standalone without external API servers. Perfect for hosting on Streamlit Cloud!")
 
     st.markdown("---")
-    st.markdown("<div class='sidebar-header'>⚙️ LLM Configuration</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sidebar-header'>LLM Configuration</div>", unsafe_allow_html=True)
     
     # Toggle Mock LLM vs Active LLMs
     llm_driver = st.checkbox("Enable Mock LLM Mode", value=True, help="Simulate AI reasoning and ticket outputs instantly without entering actual API keys.")
@@ -238,7 +227,7 @@ with st.sidebar:
             st.error("Please enter a valid API Key to disable Mock Mode.")
 
     st.markdown("---")
-    st.markdown("<div class='sidebar-header'>📌 Quick Templates</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sidebar-header'>Quick Templates</div>", unsafe_allow_html=True)
     st.write("Click a template query to autofill:")
     
     templates = {
@@ -259,7 +248,7 @@ st.markdown("<div class='main-header'>Agentic AI Customer Support System</div>",
 st.markdown("<div class='sub-header'>Orchestrating Multiple AI Agents using Python, LangChain, LangGraph, and FastAPI</div>", unsafe_allow_html=True)
 
 # Main Application Tabs
-tab1, tab2 = st.tabs(["🚀 Ticket Resolution Workspace", "📊 Business Performance Dashboard"])
+tab1, tab2 = st.tabs(["Ticket Resolution Workspace", "Operations Dashboard"])
 
 # =====================================================================
 # TAB 1: Ticket Resolution Workspace
@@ -268,7 +257,7 @@ with tab1:
     col_input, col_kb = st.columns([7, 5])
     
     with col_input:
-        st.subheader("📬 Customer Support Input")
+        st.subheader("Customer Support Input")
         
         # Pull text from clicked template if existing
         default_val = st.session_state.get("autofill_query", "")
@@ -285,28 +274,28 @@ with tab1:
         if "autofill_query" in st.session_state:
             del st.session_state.autofill_query
             
-        run_btn = st.button("▶ Run Agent Workflow", type="primary", use_container_width=True)
+        run_btn = st.button("Run Agent Workflow", type="primary", use_container_width=True)
         
     with col_kb:
-        st.subheader("📁 Local Knowledge Base Docs")
+        st.subheader("Local Knowledge Base Docs")
         st.write("Current business policies stored in plain text files:")
         
         # Collapsible files viewer for educational purposes
-        with st.expander("📄 refund_policy.txt", expanded=False):
+        with st.expander("refund_policy.txt", expanded=False):
             if os.path.exists("knowledge_base/refund_policy.txt"):
                 with open("knowledge_base/refund_policy.txt", "r") as f:
                     st.code(f.read(), language="text")
             else:
                 st.write("File not found.")
                 
-        with st.expander("📄 shipping_info.txt", expanded=False):
+        with st.expander("shipping_info.txt", expanded=False):
             if os.path.exists("knowledge_base/shipping_info.txt"):
                 with open("knowledge_base/shipping_info.txt", "r") as f:
                     st.code(f.read(), language="text")
             else:
                 st.write("File not found.")
                 
-        with st.expander("📄 technical_support.txt", expanded=False):
+        with st.expander("technical_support.txt", expanded=False):
             if os.path.exists("knowledge_base/technical_support.txt"):
                 with open("knowledge_base/technical_support.txt", "r") as f:
                     st.code(f.read(), language="text")
@@ -322,7 +311,7 @@ with tab1:
         elif not llm_driver and not api_key:
             st.error("Live LLM Mode requires an API key in the sidebar configuration.")
         else:
-            st.subheader("⚙️ LangGraph Multi-Agent Trace")
+            st.subheader("LangGraph Multi-Agent Trace")
             
             # Setup configuration payload
             config_payload = {
@@ -402,20 +391,20 @@ with tab1:
                         res_detail = s.get("result", "")
                         elapsed = s.get("elapsed_seconds", 0.0)
                         
-                        icon = "📁"
+                        role_tag = "Agent"
                         if "Classification" in agent:
-                            icon = "🧭"
+                            role_tag = "Classifier"
                         elif "Retrieval" in agent:
-                            icon = "🔍"
+                            role_tag = "Retriever"
                         elif "Response" in agent:
-                            icon = "✍️"
+                            role_tag = "Responder"
                         elif "Supervisor" in agent:
-                            icon = "⚖️"
+                            role_tag = "Supervisor"
                             
                         st.markdown(f"""
                         <div class="agent-card">
                             <div class="agent-name">
-                                <span>{icon} {agent}</span> 
+                                <span>[{role_tag}] {agent}</span> 
                                 <span style="font-weight:normal; color:#6b7280; font-size:0.85rem;">— {action} ({elapsed}s)</span>
                             </div>
                             <div class="agent-thoughts">
@@ -434,7 +423,7 @@ with tab1:
             
             # Displays final output result box
             if result:
-                st.markdown("### 🏆 Final Workflow Results")
+                st.markdown("### Final Workflow Results")
                 
                 col1, col2 = st.columns([7, 5])
                 
@@ -460,14 +449,14 @@ with tab1:
                     """, unsafe_allow_html=True)
                     
                     # Expander for raw retrieved documents context
-                    with st.expander("🔍 Show Retrieved KB Context", expanded=True):
+                    with st.expander("Show Retrieved KB Context", expanded=True):
                         st.code(result.get("context", "No context retrieved."), language="text")
 
 # =====================================================================
 # TAB 2: Business Performance Dashboard
 # =====================================================================
 with tab2:
-    st.subheader("📈 Mock Operations Dashboard")
+    st.subheader("Operations Dashboard")
     st.write("Tracking business performance, success rates, and customer satisfaction metrics for the multi-agent system.")
     
     # 1. Fetch current active metrics
@@ -518,20 +507,20 @@ with tab2:
         <div class="glass-card" style="text-align:center;">
             <p style="color:#9ca3af; margin-bottom:0.1rem; font-size:0.9rem;">Total Tickets Handled</p>
             <h2 style="font-size:2.5rem; margin:0; color:#fff;">{metrics.get("total_tickets", 0)}</h2>
-            <p style="color:#60a5fa; font-size:0.8rem; margin:0;">🤖 100% Agent Processed</p>
+            <p style="color:#60a5fa; font-size:0.8rem; margin:0;">Workflow Automation</p>
         </div>
         """, unsafe_allow_html=True)
         
     with kpi_col2:
         # Determine color for success rate
-        s_rate = metrics.get("success_rate", 100.0)
-        s_color = "#34d399" if s_rate > 90 else ("#fbbf24" if s_rate > 80 else "#f87171")
+        st_rate = metrics.get("success_rate", 100.0)
+        s_color = "#34d399" if st_rate > 90 else ("#fbbf24" if st_rate > 80 else "#f87171")
         
         st.markdown(f"""
         <div class="glass-card" style="text-align:center;">
             <p style="color:#9ca3af; margin-bottom:0.1rem; font-size:0.9rem;">Workflow Success Rate</p>
-            <h2 style="font-size:2.5rem; margin:0; color:{s_color};">{s_rate}%</h2>
-            <p style="color:#34d399; font-size:0.8rem; margin:0;">🎯 QA Supervisor Approved</p>
+            <h2 style="font-size:2.5rem; margin:0; color:{s_color};">{st_rate}%</h2>
+            <p style="color:#34d399; font-size:0.8rem; margin:0;">QA Audited</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -540,7 +529,7 @@ with tab2:
         <div class="glass-card" style="text-align:center;">
             <p style="color:#9ca3af; margin-bottom:0.1rem; font-size:0.9rem;">Avg Resolution Time</p>
             <h2 style="font-size:2.5rem; margin:0; color:#a78bfa;">{metrics.get("avg_resolution_time", 0.0)}s</h2>
-            <p style="color:#a78bfa; font-size:0.8rem; margin:0;">⚡ Live Pipeline Latency</p>
+            <p style="color:#a78bfa; font-size:0.8rem; margin:0;">Average Time</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -548,8 +537,8 @@ with tab2:
         st.markdown(f"""
         <div class="glass-card" style="text-align:center;">
             <p style="color:#9ca3af; margin-bottom:0.1rem; font-size:0.9rem;">Customer Satisfaction (CSAT)</p>
-            <h2 style="font-size:2.5rem; margin:0; color:#f472b6;">⭐ {metrics.get("csat_score", 0.0)}/5.0</h2>
-            <p style="color:#f472b6; font-size:0.8rem; margin:0;">🗣️ Based on {metrics.get("csat_votes", 0)} votes</p>
+            <h2 style="font-size:2.5rem; margin:0; color:#f472b6;">{metrics.get("csat_score", 0.0)} / 5.0</h2>
+            <p style="color:#f472b6; font-size:0.8rem; margin:0;">Based on {metrics.get("csat_votes", 0)} votes</p>
         </div>
         """, unsafe_allow_html=True)
 
