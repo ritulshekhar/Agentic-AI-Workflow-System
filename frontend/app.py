@@ -625,14 +625,18 @@ with tab2:
                 margin=dict(t=20, b=10, l=10, r=10),
                 legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1.0),
                 yaxis=dict(
-                    title="Volume (Tickets)",
-                    titlefont=dict(color="#818cf8"),
+                    title=dict(
+                        text="Volume (Tickets)",
+                        font=dict(color="#818cf8")
+                    ),
                     tickfont=dict(color="#818cf8"),
                     gridcolor="rgba(255,255,255,0.05)"
                 ),
                 yaxis2=dict(
-                    title="Success Rate (%)",
-                    titlefont=dict(color="#10b981"),
+                    title=dict(
+                        text="Success Rate (%)",
+                        font=dict(color="#10b981")
+                    ),
                     tickfont=dict(color="#10b981"),
                     overlaying="y",
                     side="right",
