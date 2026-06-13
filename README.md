@@ -8,11 +8,11 @@ A beginner-friendly, visually stunning Multi-Agent Workflow System designed to a
 
 *   **Stateful Orchestration with LangGraph**: Coordinates 4 specialized agents (Classification, Retrieval, Response, and Supervisor) using graph-based loops.
 *   **Self-Correcting Routing Loops**: The Supervisor Agent audits draft replies. If quality checks fail, the workflow loops back to the Response Agent with feedback to refine the draft.
-*   **Dual-Driver Architecture**: Can run as a distributed system (Streamlit UI + separate FastAPI backend service) or as a standalone app (Streamlit running the graph in-process). This makes it easy to host online for free (e.g. on Streamlit Cloud).
+*   **Dual-Driver Architecture**: Can run as a distributed system (Streamlit UI + separate FastAPI backend service) or as a standalone app (Streamlit running the graph in-process). This makes it easy to host online for free (e.g., on Streamlit Cloud).
 *   **Zero-Dependency Mock LLM Mode**: Includes a simulated agent execution mode that runs instantly without requiring API keys or payment setups—perfect for quick demos.
 *   **Active LLM Mode**: Compatible with OpenAI, Groq, OpenRouter, or any OpenAI-compatible API endpoint.
 *   **Mock Operations Dashboard**: Uses interactive Plotly charts (donut and dual-axis volume/success timeline) and real-time KPI card styles to display operational metrics.
-*   **Preloaded Query Templates**: Allows clicking template queries (e.g. urgent returns, password resets) to instantly autofill and demonstrate workflow pathways.
+*   **Preloaded Query Templates**: Allow clicking template queries (e.g., urgent returns, password resets) to instantly autofill and demonstrate workflow pathways.
 
 ---
 
